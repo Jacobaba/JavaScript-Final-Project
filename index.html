@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Search</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="background__img" background="./Assets/background__img.jpg">
+    <section id="nav">
+      <nav>
+        <div class="nav__row">
+          <img class="nav__img" src="./Assets/Unown" alt="" />
+          <img class="nav__background--img" src="./Assets/pokemon.jpg" alt="" />
+          <ul class="nav__links">
+            <li class="nav__link">Home</li>
+            <li class="nav__link">Find Your Pokemon</li>
+            <div class="btn__wrapper">
+              <a href="#" class="nav__btn">Contact</a>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <section id="landing">
+      <input
+        id="searchItem"
+        class="pokeSearch"
+        type="search"
+        placeholder="Enter Pokemon Name"
+        onchange="pullPokemon(event)"
+        poke-search
+      />
+    </section>
+    <figure>
+    </figure>
+    <h1 class="pokemon__caught">Pokemon Caught:</h1>
+      <ol id="pokedex"></ol>
+    <script src="index.js"></script>
+  </body>
+</html>
