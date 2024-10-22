@@ -1,30 +1,34 @@
-const pokedex = document.getElementById('pokedex');
-const pokemonName = document.getElementById('searchItem').value.toLowerCase()
+const pokedex = document.getElementById("pokedex");
+const searchInput = document.querySelector("#searchItem");
 
+let pokemon = [];
 
-const pullPokemon = (event) => {
-    const searchItem = event.target.value.toLowerCase();
-    const promises = [];
-    for (let i = 1; i <= 1; i++) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${searchItem}`;
-        promises.push(fetch(url).then((res) => res.json()));
-    }
-    Promise.all(promises).then((results) => {
-        const pokemon = results.map((result) => ({
-            name: result.name.toUpperCase(),
-            image: result.sprites.other.home['front_default'],
-            type: result.types.map((type) => type.type.name).join(', '),
-            id: result.id
-        }));
-        displayPokemon(pokemon);
-    });
+const pullPokemon = () => {
+  const promises = [];
+  for (let i = 1; i <= 1025; i++) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    promises.push(fetch(url).then((res) => res.json()));
+  }
+  Promise.all(promises).then((results) => {
+    const pokemon = results.map((result) => ({
+      name: result.name,
+      image: result.sprites.other.home["front_default"],
+      type: result.types.map((type) => type.type.name).join(", "),
+      id: result.id,
+    }));
+    displayPokemon(pokemon);
+  });
 };
 
 const displayPokemon = (pokemon) => {
-    console.log(pokemon);
-    const pokemonHTMLString = pokemon
+  let query = searchInput.value;
+  console.log("Query::", query);
+  const pokemonHTMLString = pokemon.filter((eventData) => {
+    if (query === "") {return eventData}
+    else if (eventData.name.toLowerCase().includes(query.toLowerCase())) {return eventData}
+  })
     .map(
-        (pokemon) => `
+      (pokemon) => `
         <li class="card">
         <img class="card-image" src="${pokemon.image}"/>
         <h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
@@ -32,8 +36,12 @@ const displayPokemon = (pokemon) => {
         </li>
         `
     )
-    .join('');
-    pokedex.innerHTML = pokemonHTMLString;
+    .join("");
+  pokedex.innerHTML = pokemonHTMLString;
 };
 
 pullPokemon();
+
+searchInput.addEventListener("input", () => {
+  pullPokemon()
+})

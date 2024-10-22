@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemon Search</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="background__img" background="./Assets/background__img.jpg">
     <section id="nav">
@@ -23,20 +26,32 @@
         </div>
       </nav>
     </section>
-    <section id="landing">
+    <div id="searchPokemon">
       <input
         id="searchItem"
         class="pokeSearch"
         type="search"
         placeholder="Enter Pokemon Name"
-        onchange="pullPokemon(event)"
+        onchange="pullPokemon()"
         poke-search
       />
-    </section>
-    <figure>
-    </figure>
+      <button class="search__btn">Catch Pokemon</button>
+    </div>
+    <div class="filter__container">
+
+      <div class="poke__filter">
+        <button>Filter Pokemon</button>
+        <div class="filter__options">
+          <a href="">Sort High to Low</a>
+          <a href="">Sort Low to High</a>
+          <a href="">Sort A - Z</a>
+          <a href="">Sort Z - A</a>
+        </div>
+      </div>
+    </div>
+  </div>
     <h1 class="pokemon__caught">Pokemon Caught:</h1>
-      <ol id="pokedex"></ol>
+    <ol id="pokedex"></ol>
     <script src="index.js"></script>
   </body>
 </html>
