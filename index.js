@@ -3,7 +3,7 @@ const searchInput = document.querySelector("#searchItem");
 
 let pokemon = [];
 
-const pullPokemon = () => {
+const pullPokemon = (filter) => {
   const promises = [];
   for (let i = 1; i <= 1025; i++) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
@@ -15,7 +15,19 @@ const pullPokemon = () => {
       image: result.sprites.other.home["front_default"],
       type: result.types.map((type) => type.type.name).join(", "),
       id: result.id,
-    }));
+    }))
+    if (filter === 'LOW_TO_HIGH') {
+      pokemon.sort((a, b) => a.id > b.id ? 1 : -1)  
+    }
+    else if (filter === 'HIGH_TO_LOW') {
+      pokemon.sort((a, b) => b.id > a.id ? 1 : -1)
+    }
+    else if (filter === 'A_TO_Z') {
+      pokemon.sort((a, b) => a.name > b.name ? 1 : -1)
+    }
+    else if (filter === 'Z_TO_A') {
+      pokemon.sort((a, b) => b.name > a.name ? 1 : -1)
+    }
     displayPokemon(pokemon);
   });
 };
@@ -45,3 +57,7 @@ pullPokemon();
 searchInput.addEventListener("input", () => {
   pullPokemon()
 })
+
+function filterPokemon(event) {
+  pullPokemon(event.target.value)
+}

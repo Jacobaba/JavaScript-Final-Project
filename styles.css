@@ -120,46 +120,16 @@
   font-size: 28px;
 }
 
-.poke__filter {
-  display: inline-block;
-  float: right;
-  padding-right: 24px;
-}
-
-.poke__filter button {
-  background-color: rgba(0, 27, 159, 0.622);
+#filter {
+  padding: 10px 20px;
+  border-radius: 24px;
   color: rgb(253, 253, 52);
+  background-color: rgba(0, 27, 159, 0.622);
   border: none;
-  padding: 16px 15px;
-  border-radius: 25px;
   font-weight: bold;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.poke__filter a {
-  display: block;
-  color: black;
-  text-decoration: none;
-  padding: 5px 12px;
-}
-
-.poke__filter .filter__options {
-  display: none;
-  position: relative;
-  min-width: 100px;
-}
-
-.poke__filter:hover .filter__options {
-  display: block;
-}
-
-.poke__filter:hover button {
-  background-color: hsl(0%, 0%, 70%);
-}
-
-.poke__filter a:hover {
-  background-color: hsl(0%, 0%, 90%);
+  text-align: center;
+  float: right;
+  margin: 32px 80px 0 0;
 }
 
 /* Pokemon */
