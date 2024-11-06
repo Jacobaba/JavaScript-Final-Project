@@ -163,7 +163,7 @@
   box-shadow: 0 20px 80px black;
 }
 
-/* Laptops and small Monitors */
+/* Laptops and Small Monitors */
 @media (max-width: 1200px) {
   .card {
     width: 75%;

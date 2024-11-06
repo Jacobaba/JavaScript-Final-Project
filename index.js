@@ -60,4 +60,4 @@ searchInput.addEventListener("input", () => {
 
 function filterPokemon(event) {
   pullPokemon(event.target.value)
-}
+};
