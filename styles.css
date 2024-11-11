@@ -29,7 +29,7 @@
   opacity: 1;
   z-index: 1;
   width: 20%;
-  padding: 0 40px 0 32px;
+  padding: 0 108px 0 12px;
 }
 
 .nav__img {
@@ -72,7 +72,7 @@
 .btn__wrapper {
   display: flex;
   align-items: center;
-  padding-right: 24px;
+  padding-right: 48px;
 }
 
 /* Landing */
